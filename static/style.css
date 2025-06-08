@@ -60,7 +60,7 @@ header h1 {
 
 .controls {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 20px;
     padding: 15px;
     background-color: var(--bg-tertiary);
