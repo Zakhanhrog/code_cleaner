@@ -85,7 +85,8 @@ header .subtitle {
 
 .controls {
     display: flex;
-    align-items: center;
+    justify-content: center;      /* căn giữa ngang */
+    align-items: flex-end;        /* căn đáy các control-group và button */
     gap: 18px;
     padding: 16px 18px;
     background: linear-gradient(90deg, #e6f4f1 60%, #f7fafc 100%);
@@ -93,16 +94,17 @@ header .subtitle {
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 24px;
     box-shadow: 0 2px 8px rgba(20,184,166,0.04);
-    justify-content: center; /* căn giữa ngang */
     flex-wrap: wrap;
 }
 
 .control-group {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;      /* label và select thẳng hàng trái */
     gap: 7px;
     padding: 8px 0;
     min-width: 160px;
+    margin-bottom: 0;             /* bỏ margin nếu có */
 }
 
 label {
@@ -110,6 +112,13 @@ label {
     color: var(--text-secondary);
     font-weight: 500;
     letter-spacing: 0.1px;
+    margin-bottom: 2px;           /* thêm margin nhỏ cho label */
+}
+
+select {
+    width: 200px;                 /* cố định chiều rộng cho select */
+    min-width: 140px;
+    max-width: 260px;
 }
 
 select, button {
@@ -144,6 +153,13 @@ button#processButton {
     border-radius: 10px;
     letter-spacing: 0.2px;
     box-shadow: 0 2px 8px rgba(20,184,166,0.13);
+    align-self: flex-end;         /* căn đáy button với select */
+    height: 48px;                 /* chiều cao gần bằng select */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 button#processButton:hover {
@@ -383,14 +399,22 @@ div.code-toolbar > .toolbar.hovered {
     .controls {
         flex-direction: column;
         align-items: stretch;
+        justify-content: flex-start;
         padding-bottom: 14px;
     }
     .control-group {
         width: 100%;
         min-width: unset;
+        margin-bottom: 0;
     }
     select, button {
         width: 100%;
+        min-width: unset;
+        max-width: unset;
+        height: auto;
+    }
+    button#processButton {
+        height: auto;
     }
     pre#codeOutputDisplay, textarea#codeInput {
         min-height: 120px;
