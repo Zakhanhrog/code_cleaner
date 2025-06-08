@@ -93,7 +93,7 @@ header .subtitle {
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 24px;
     box-shadow: 0 2px 8px rgba(20,184,166,0.04);
-    justify-content: flex-start;
+    justify-content: center; /* căn giữa ngang */
     flex-wrap: wrap;
 }
 
