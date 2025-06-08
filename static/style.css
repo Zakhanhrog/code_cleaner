@@ -1,22 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500;600&display=swap');
 
 :root {
-    --bg-primary: #f7fafc;
-    --bg-secondary: #ffffff;
-    --bg-tertiary: #e6f4f1;
-    --text-primary: #1a3a36;
-    --text-secondary: #5a7d76;
-    --accent-primary: #14b8a6;
-    --accent-secondary: #0e9488;
-    --border-color: #b2dfdb;
-    --error-bg: #f8d7da;
-    --error-text: #721c24;
-    --error-border: #f5c6cb;
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', Courier, monospace;
-    --shadow-sm: 0 1px 3px rgba(20,184,166,0.05), 0 1px 2px rgba(20,184,166,0.03);
-    --shadow-md: 0 6px 24px rgba(20,184,166,0.07), 0 1.5px 4px rgba(20,184,166,0.04);
-    --border-radius: 16px;
+    --bg-primary: #1e1e1e;
+    --bg-secondary: #252526;
+    --bg-tertiary: #333333;
+    --text-primary: #d4d4d4;
+    --text-secondary: #808080;
+    --accent-primary: #007acc;
+    --accent-secondary: #0e639c;
+    --border-color: #3c3c3c;
+    --error-bg: #521313;
+    --error-text: #f1b0b7;
+    --font-sans: 'Roboto', sans-serif;
+    --font-mono: 'Fira Code', 'Courier New', Courier, monospace;
 }
 
 * {
@@ -27,246 +23,162 @@
 
 body {
     font-family: var(--font-sans);
-    background: linear-gradient(135deg, #f7fafc 0%, #e6f4f1 100%);
+    background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
-    padding: 25px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     min-height: 100vh;
 }
 
 .container {
     background-color: var(--bg-secondary);
-    margin: 40px 0 40px 0;
-    padding: 38px 32px 38px 32px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-md);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     width: 100%;
-    max-width: 900px;
+    max-width: 1400px;
     display: flex;
     flex-direction: column;
-    gap: 32px;
-    border: 2px solid var(--border-color);
-    transition: box-shadow 0.3s, border-color 0.3s;
-    align-items: stretch;
-}
-
-.container:hover {
-    box-shadow: 0 10px 32px rgba(20,184,166,0.13), 0 2px 8px rgba(20,184,166,0.09);
-    border-color: var(--accent-primary);
+    gap: 25px;
 }
 
 header {
     width: 100%;
     text-align: center;
-    margin-bottom: 18px;
-    border-bottom: 1.5px solid var(--border-color);
-    padding-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 header h1 {
-    font-size: 2.3em;
+    font-size: 2.5em;
     color: var(--accent-primary);
     font-weight: 700;
-    letter-spacing: 0.5px;
-    text-shadow: 0 2px 8px rgba(20,184,166,0.08);
-}
-
-header .subtitle {
-    font-size: 1.08em;
-    color: var(--text-secondary);
-    margin-top: 7px;
-    font-weight: 400;
-    letter-spacing: 0.1px;
+    letter-spacing: -1px;
 }
 
 .controls {
     display: flex;
-    justify-content: center;      /* căn giữa ngang */
-    align-items: flex-end;        /* căn đáy các control-group và button */
-    gap: 18px;
-    padding: 16px 18px;
-    background: linear-gradient(90deg, #e6f4f1 60%, #f7fafc 100%);
-    border-radius: var(--border-radius);
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 24px;
-    box-shadow: 0 2px 8px rgba(20,184,166,0.04);
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    background-color: var(--bg-tertiary);
+    border-radius: 8px;
     flex-wrap: wrap;
 }
 
 .control-group {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;      /* label và select thẳng hàng trái */
-    gap: 7px;
-    padding: 8px 0;
-    min-width: 160px;
-    margin-bottom: 0;             /* bỏ margin nếu có */
+    gap: 5px;
 }
 
 label {
-    font-size: 0.93em;
+    font-size: 0.9em;
     color: var(--text-secondary);
     font-weight: 500;
-    letter-spacing: 0.1px;
-    margin-bottom: 2px;           /* thêm margin nhỏ cho label */
-}
-
-select {
-    width: 200px;                 /* cố định chiều rộng cho select */
-    min-width: 140px;
-    max-width: 260px;
 }
 
 select, button {
-    padding: 11px 18px;
-    border: 2px solid var(--border-color);
-    border-radius: 10px;
-    background-color: var(--bg-tertiary);
+    padding: 12px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--bg-secondary);
     color: var(--text-primary);
     font-size: 1em;
     cursor: pointer;
-    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
     font-family: var(--font-sans);
-    box-shadow: 0 1px 4px rgba(20,184,166,0.04);
-}
-
-select:hover, button:hover {
-    background-color: #b2dfdb;
 }
 
 select:focus, button:focus {
     outline: none;
     border-color: var(--accent-primary);
-    background-color: #fff;
-    box-shadow: 0 0 0 4px rgba(20,184,166,0.13);
+    box-shadow: 0 0 0 2px var(--accent-secondary);
 }
 
 button#processButton {
     background-color: var(--accent-primary);
     color: #fff;
-    font-weight: 600;
+    font-weight: 500;
     border-color: var(--accent-primary);
-    border-radius: 10px;
-    letter-spacing: 0.2px;
-    box-shadow: 0 2px 8px rgba(20,184,166,0.13);
-    align-self: flex-end;         /* căn đáy button với select */
-    height: 48px;                 /* chiều cao gần bằng select */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 0;
-    padding-bottom: 0;
 }
 
 button#processButton:hover {
     background-color: var(--accent-secondary);
     border-color: var(--accent-secondary);
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 6px 18px rgba(20,184,166,0.18);
 }
 
-.editor-stack {
+.editor-layout {
     display: flex;
-    flex-direction: column;
-    gap: 32px;
+    gap: 20px;
     width: 100%;
 }
 
 .editor-pane {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 13px;
-    width: 100%;
+    gap: 10px;
 }
 
-.editor-pane > label {
-    font-size: 1.08em;
-    font-weight: 600;
+.editor-pane label {
+    font-size: 1.1em;
+    font-weight: 500;
     color: var(--text-primary);
-    letter-spacing: 0.1px;
 }
 
 textarea#codeInput {
     width: 100%;
-    min-height: 250px;
-    padding: 14px;
-    border: 2px solid var(--border-color);
-    border-radius: var(--border-radius);
-    background: linear-gradient(90deg, #e6f4f1 80%, #f7fafc 100%);
+    min-height: 400px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #1a1a1a;
     color: var(--text-primary);
     font-family: var(--font-mono);
-    font-size: 1em;
+    font-size: 0.95em;
     line-height: 1.5;
     resize: vertical;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    box-shadow: 0 1px 6px rgba(20,184,166,0.04);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    transition: border-color 0.2s ease;
 }
 
 textarea#codeInput:focus {
     outline: none;
     border-color: var(--accent-primary);
-    background: #fff;
-    box-shadow: 0 0 0 4px rgba(20,184,166,0.13);
 }
 
 textarea#codeInput::placeholder {
     color: var(--text-secondary);
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
-.editor-pane .output-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0px;
-}
-
-.editor-pane .output-header label {
-    margin-bottom: 0;
-}
-
-button#exportButton {
-    padding: 7px 14px;
-    font-size: 0.92em;
-    background-color: var(--bg-tertiary);
+.editor-pane label[for="codeOutputDisplay"] {
+    font-size: 1.1em;
+    font-weight: 500;
     color: var(--text-primary);
-    border: 2px solid var(--border-color);
-    margin-left: auto;
-    border-radius: 10px;
-    box-shadow: 0 1px 4px rgba(20,184,166,0.04);
-}
-
-button#exportButton:hover {
-    background-color: #b2dfdb;
+    margin-bottom: 0px;
+    display: block;
 }
 
 pre#codeOutputDisplay {
+    flex-grow: 1;
     width: 100%;
-    min-height: 250px;
-    padding: 14px !important;
+    min-height: 400px;
+    padding: 15px !important;
     margin: 0;
-    margin-top: 8px;
-    border: 2px solid var(--border-color);
-    border-radius: var(--border-radius);
-    background: linear-gradient(90deg, #fff 80%, #e6f4f1 100%);
-    box-shadow: 0 1px 6px rgba(20,184,166,0.04);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
     font-family: var(--font-mono) !important;
-    font-size: 1em !important;
+    font-size: 0.95em !important;
     line-height: 1.5 !important;
     overflow: auto;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    transition: border-color 0.2s ease;
     white-space: pre-wrap;
     word-wrap: break-word;
-    position: relative;
-}
-
-pre#codeOutputDisplay:focus-within {
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 4px rgba(20,184,166,0.13);
 }
 
 pre#codeOutputDisplay code {
@@ -280,110 +192,72 @@ pre#codeOutputDisplay code {
 }
 
 pre.line-numbers {
-    padding-left: 3.8em !important;
+    position: relative;
+}
+
+.line-numbers-rows > span {
+    display: block;
 }
 
 #loadingIndicator, .error-message {
     width: 100%;
     text-align: center;
-    padding: 10px 15px;
-    border-radius: 10px;
+    padding: 12px;
+    border-radius: 6px;
     font-size: 0.95em;
-    margin-top: 20px;
-    box-shadow: 0 1px 4px rgba(20,184,166,0.04);
+    margin-top: 15px;
 }
 
 #loadingIndicator {
     color: var(--accent-primary);
-    background-color: rgba(20,184,166,0.07);
-    border: 1.5px solid rgba(20,184,166,0.13);
-    font-weight: 500;
+    background-color: rgba(0, 122, 204, 0.1);
 }
 
 .error-message {
     color: var(--error-text);
     background-color: var(--error-bg);
-    border: 1.5px solid var(--error-border);
-    font-weight: 500;
+    border: 1px solid var(--error-text);
 }
 
 textarea#codeInput::-webkit-scrollbar,
 pre#codeOutputDisplay::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
 }
 
 textarea#codeInput::-webkit-scrollbar-track,
 pre#codeOutputDisplay::-webkit-scrollbar-track {
     background: var(--bg-tertiary);
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    border-radius: 0 8px 8px 0;
 }
 
 textarea#codeInput::-webkit-scrollbar-thumb,
 pre#codeOutputDisplay::-webkit-scrollbar-thumb {
-    background: #b2dfdb;
-    border-radius: 4px;
+    background: var(--text-secondary);
+    border-radius: 5px;
 }
 
 textarea#codeInput::-webkit-scrollbar-thumb:hover,
 pre#codeOutputDisplay::-webkit-scrollbar-thumb:hover {
-    background: #14b8a6;
+    background: var(--accent-primary);
 }
-
-div.code-toolbar {
-    position: relative;
-}
-
-div.code-toolbar > .toolbar {
-    position: absolute;
-    top: 0.5em;
-    right: 0.5em;
-    display: flex;
-    gap: 0.5em;
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 10;
-    border-radius: 10px;
-    background: #e6f4f1;
-    box-shadow: 0 1px 4px rgba(20,184,166,0.04);
-}
-
-div.code-toolbar:hover > .toolbar,
-div.code-toolbar > .toolbar.hovered {
-    opacity: 1;
-}
-
-.toolbar-item > button, 
-.toolbar-item > a {
-    padding: 0.3em 0.6em !important;
-    font-size: 0.85em !important;
-    color: var(--text-primary) !important;
-    background-color: var(--bg-tertiary) !important;
-    border: 2px solid var(--border-color) !important;
-    border-radius: 8px !important;
-    box-shadow: none !important;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.toolbar-item > button:hover,
-.toolbar-item > a:hover {
-    background-color: #b2dfdb !important;
-    color: var(--text-primary) !important;
-}
-
 
 @media (max-width: 900px) {
+    .editor-layout {
+        flex-direction: column;
+    }
     .container {
-        padding: 22px;
-        max-width: 100%;
-        border-radius: 12px;
+        padding: 20px;
     }
     header h1 {
-        font-size: 1.7em;
+        font-size: 2em;
+    }
+    select, button {
+        padding: 10px 15px;
+        font-size: 0.9em;
     }
     pre#codeOutputDisplay, textarea#codeInput {
-        min-height: 180px;
+        min-height: 350px;
     }
 }
 
@@ -392,44 +266,23 @@ div.code-toolbar > .toolbar.hovered {
         padding: 10px;
     }
     .container {
-        padding: 12px;
-        gap: 14px;
-        border-radius: 8px;
+        padding: 15px;
     }
     .controls {
         flex-direction: column;
         align-items: stretch;
-        justify-content: flex-start;
-        padding-bottom: 14px;
     }
     .control-group {
         width: 100%;
-        min-width: unset;
-        margin-bottom: 0;
     }
     select, button {
         width: 100%;
-        min-width: unset;
-        max-width: unset;
-        height: auto;
-    }
-    button#processButton {
-        height: auto;
     }
     pre#codeOutputDisplay, textarea#codeInput {
-        min-height: 120px;
-        font-size: 0.92em;
+        min-height: 300px;
+        font-size: 0.9em;
     }
     header h1 {
-        font-size: 1.2em;
-    }
-    .editor-pane .output-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-    button#exportButton {
-        margin-left: 0;
-        width: 100%;
+        font-size: 1.8em;
     }
 }
