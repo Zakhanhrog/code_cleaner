@@ -287,4 +287,5 @@ def process_code_route():
     return jsonify({'processed_code': processed_code.strip()})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Chỉ chạy trong debug mode khi phát triển local
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 10000)))
