@@ -39,7 +39,7 @@ body {
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     width: 100%;
-    max-width: 1400px; /* Increased max-width for wider layout */
+    max-width: 1400px;
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -65,7 +65,7 @@ header h1 {
     padding: 15px;
     background-color: var(--bg-tertiary);
     border-radius: 8px;
-    flex-wrap: wrap; /* Allow controls to wrap on smaller screens */
+    flex-wrap: wrap;
 }
 
 .control-group {
@@ -129,13 +129,13 @@ button#processButton:hover {
     color: var(--text-primary);
 }
 
-textarea {
+textarea#codeInput {
     width: 100%;
-    min-height: 400px; /* Set a min-height */
+    min-height: 400px;
     padding: 15px;
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    background-color: #1a1a1a; /* Slightly different bg for textareas */
+    background-color: #1a1a1a;
     color: var(--text-primary);
     font-family: var(--font-mono);
     font-size: 0.95em;
@@ -145,14 +145,58 @@ textarea {
     transition: border-color 0.2s ease;
 }
 
-textarea:focus {
+textarea#codeInput:focus {
     outline: none;
     border-color: var(--accent-primary);
 }
 
-textarea::placeholder {
+textarea#codeInput::placeholder {
     color: var(--text-secondary);
     opacity: 0.7;
+}
+
+.editor-pane label[for="codeOutputDisplay"] {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0px;
+    display: block;
+}
+
+pre#codeOutputDisplay {
+    flex-grow: 1;
+    width: 100%;
+    min-height: 400px;
+    padding: 15px !important;
+    margin: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: var(--font-mono) !important;
+    font-size: 0.95em !important;
+    line-height: 1.5 !important;
+    overflow: auto;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    transition: border-color 0.2s ease;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+pre#codeOutputDisplay code {
+    font-family: inherit !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+    background: none !important;
+    padding: 0 !important;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+}
+
+pre.line-numbers {
+    position: relative;
+}
+
+.line-numbers-rows > span {
+    display: block;
 }
 
 #loadingIndicator, .error-message {
@@ -175,26 +219,29 @@ textarea::placeholder {
     border: 1px solid var(--error-text);
 }
 
-/* Custom Scrollbars (Webkit browsers) */
-textarea::-webkit-scrollbar {
+textarea#codeInput::-webkit-scrollbar,
+pre#codeOutputDisplay::-webkit-scrollbar {
     width: 10px;
+    height: 10px;
 }
 
-textarea::-webkit-scrollbar-track {
+textarea#codeInput::-webkit-scrollbar-track,
+pre#codeOutputDisplay::-webkit-scrollbar-track {
     background: var(--bg-tertiary);
-    border-radius: 8px;
+    border-radius: 0 8px 8px 0;
 }
 
-textarea::-webkit-scrollbar-thumb {
+textarea#codeInput::-webkit-scrollbar-thumb,
+pre#codeOutputDisplay::-webkit-scrollbar-thumb {
     background: var(--text-secondary);
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
-textarea::-webkit-scrollbar-thumb:hover {
+textarea#codeInput::-webkit-scrollbar-thumb:hover,
+pre#codeOutputDisplay::-webkit-scrollbar-thumb:hover {
     background: var(--accent-primary);
 }
 
-/* Responsive adjustments */
 @media (max-width: 900px) {
     .editor-layout {
         flex-direction: column;
@@ -209,6 +256,9 @@ textarea::-webkit-scrollbar-thumb:hover {
         padding: 10px 15px;
         font-size: 0.9em;
     }
+    pre#codeOutputDisplay, textarea#codeInput {
+        min-height: 350px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -220,15 +270,15 @@ textarea::-webkit-scrollbar-thumb:hover {
     }
     .controls {
         flex-direction: column;
-        align-items: stretch; /* Make controls take full width */
+        align-items: stretch;
     }
     .control-group {
         width: 100%;
     }
     select, button {
-        width: 100%; /* Make select and button full width */
+        width: 100%;
     }
-    textarea {
+    pre#codeOutputDisplay, textarea#codeInput {
         min-height: 300px;
         font-size: 0.9em;
     }
