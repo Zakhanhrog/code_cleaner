@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Cleaner & Formatter Pro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='prism.css') }}"> <!-- Hoặc tên theme Prism của bạn -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Code Cleaner & Formatter ✨</h1>
+        </header>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="languageSelect">Ngôn ngữ:</label>
+                <select id="languageSelect">
+                    <!-- Các option ngôn ngữ -->
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="java">Java</option>
+                    <option value="csharp">C#</option>
+                    <option value="c_cpp">C/C++</option>
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="php">PHP</option>
+                    <option value="ruby">Ruby</option>
+                    <option value="go">Go</option>
+                    <option value="rust">Rust</option>
+                    <option value="sql">SQL</option>
+                    <option value="shell">Shell (Bash/sh)</option>
+                    <option value="swift">Swift</option>
+                    <option value="kotlin">Kotlin</option>
+                    <option value="jsp">JSP</option>
+                </select>
+            </div>
+            <button id="processButton">Xoá Comment & Format</button>
+        </div>
+        
+        <div class="editor-stack">
+            <div class="editor-pane">
+                <label for="codeInput">Code gốc:</label>
+                <textarea id="codeInput" rows="15" placeholder="Dán code của bạn vào đây..."></textarea>
+            </div>
+            <div class="editor-pane">
+                <div class="output-header"> <!-- Thêm div bọc label và nút export -->
+                    <label for="codeOutputDisplay">Code đã xử lý:</label>
+                    <button id="exportButton" title="Xuất ra file .txt" style="display: none;">💾 Xuất File</button>
+                </div>
+                <pre id="codeOutputDisplay" class="line-numbers"><code id="codeOutput" class="language-plaintext">Kết quả sẽ xuất hiện ở đây...</code></pre>
+            </div>
+        </div>
+
+        <div id="loadingIndicator" style="display: none;">Đang xử lý... Vui lòng chờ! 🚀</div>
+        <div id="errorDisplay" class="error-message" style="display: none;"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='prism.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
