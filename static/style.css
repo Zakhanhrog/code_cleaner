@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-    --bg-primary: #f8f9fa;
+    --bg-primary: #f6f8fb;
     --bg-secondary: #ffffff;
-    --bg-tertiary: #e9ecef;
+    --bg-tertiary: #f1f3f7;
     --text-primary: #212529;
     --text-secondary: #6c757d;
-    --accent-primary: #007bff;
-    --accent-secondary: #0056b3;
-    --border-color: #dee2e6;
+    --accent-primary: #2563eb;
+    --accent-secondary: #1e40af;
+    --border-color: #e3e7ed;
     --error-bg: #f8d7da;
     --error-text: #721c24;
     --error-border: #f5c6cb;
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', Courier, monospace;
     --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
-    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04);
-    --border-radius: 8px;
+    --shadow-md: 0 6px 24px rgba(30,64,175,0.07), 0 1.5px 4px rgba(0,0,0,0.04);
+    --border-radius: 14px;
 }
 
 * {
@@ -27,7 +27,7 @@
 
 body {
     font-family: var(--font-sans);
-    background-color: var(--bg-primary);
+    background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
     color: var(--text-primary);
     line-height: 1.6;
     padding: 25px;
@@ -39,15 +39,21 @@ body {
 
 .container {
     background-color: var(--bg-secondary);
-    padding: 30px 35px;
+    padding: 35px;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-md);
     width: 100%;
     max-width: 1100px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    border: 1px solid var(--border-color);
+    gap: 30px;
+    border: 1.5px solid var(--border-color);
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.container:hover {
+    box-shadow: 0 10px 32px rgba(30,64,175,0.10), 0 2px 8px rgba(0,0,0,0.06);
+    border-color: var(--accent-primary);
 }
 
 header {
@@ -57,78 +63,69 @@ header {
 }
 
 header h1 {
-    font-size: 2.1em;
+    font-size: 2.2em;
     color: var(--accent-primary);
     font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 8px rgba(37,99,235,0.06);
+}
+
+header .subtitle {
+    font-size: 1.05em;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    font-weight: 400;
+    letter-spacing: 0.1px;
 }
 
 .controls {
     display: flex;
-    align-items: flex-end;
-    gap: 20px;
-    padding: 10px 0;
-    background-color: transparent;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    background: linear-gradient(90deg, #f8fafc 60%, #f1f3f7 100%);
     border-radius: var(--border-radius);
-    flex-wrap: wrap;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 20px;
+    border-bottom: 1.5px solid var(--border-color);
+    padding-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(30,64,175,0.03);
 }
 
 .control-group {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    flex-grow: 1;
-    min-width: 200px;
+    padding: 8px 0;
 }
-.control-group:last-child {
-    flex-grow: 0; /* Nút không cần chiếm hết không gian còn lại */
-}
-
 
 label {
     font-size: 0.875em;
     color: var(--text-secondary);
     font-weight: 500;
-    margin-bottom: 2px;
+    letter-spacing: 0.1px;
 }
 
 select, button {
     padding: 10px 16px;
-    height: 40px;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background-color: var(--bg-secondary);
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-tertiary);
     color: var(--text-primary);
     font-size: 0.9375em;
     cursor: pointer;
     transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     font-family: var(--font-sans);
+    box-shadow: 0 1px 4px rgba(30,64,175,0.04);
 }
-button {
-    white-space: nowrap;
-}
-
-select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236c757d' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 16px 12px;
-    padding-right: 2.5rem;
-}
-
 
 select:hover, button:hover {
-    border-color: var(--accent-secondary);
+    background-color: #e0e7ff;
 }
 
 select:focus, button:focus {
     outline: none;
     border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(37,99,235,0.13);
 }
 
 button#processButton {
@@ -136,25 +133,29 @@ button#processButton {
     color: #fff;
     font-weight: 500;
     border-color: var(--accent-primary);
-    flex-shrink: 0; /* Nút không bị co lại */
+    border-radius: 8px;
+    letter-spacing: 0.2px;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.08);
 }
 
 button#processButton:hover {
     background-color: var(--accent-secondary);
     border-color: var(--accent-secondary);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 18px rgba(37,99,235,0.13);
 }
 
 .editor-stack {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 32px;
     width: 100%;
 }
 
 .editor-pane {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
     width: 100%;
 }
 
@@ -162,28 +163,30 @@ button#processButton:hover {
     font-size: 1em;
     font-weight: 500;
     color: var(--text-primary);
+    letter-spacing: 0.1px;
 }
 
 textarea#codeInput {
     width: 100%;
     min-height: 250px;
     padding: 12px;
-    border: 1px solid var(--border-color);
+    border: 1.5px solid var(--border-color);
     border-radius: var(--border-radius);
-    background-color: var(--bg-tertiary);
+    background: linear-gradient(90deg, #f1f3f7 80%, #f8fafc 100%);
     color: var(--text-primary);
     font-family: var(--font-mono);
     font-size: 0.9em;
     line-height: 1.5;
     resize: vertical;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 1px 6px rgba(30,64,175,0.04);
 }
 
 textarea#codeInput:focus {
     outline: none;
     border-color: var(--accent-primary);
-    background-color: var(--bg-secondary);
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(37,99,235,0.13);
 }
 
 textarea#codeInput::placeholder {
@@ -200,25 +203,21 @@ textarea#codeInput::placeholder {
 
 .editor-pane .output-header label {
     margin-bottom: 0;
-    font-size: 1em;
-    font-weight: 500;
-    color: var(--text-primary);
 }
 
 button#exportButton {
-    padding: 5px 10px;
-    height: auto;
-    font-size: 0.8em;
+    padding: 6px 12px;
+    font-size: 0.85em;
     background-color: var(--bg-tertiary);
     color: var(--text-primary);
     border: 1px solid var(--border-color);
     margin-left: auto;
-    border-radius: 5px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(30,64,175,0.04);
 }
 
 button#exportButton:hover {
-    background-color: #d8dcde;
-    border-color: #ced4da;
+    background-color: #e0e7ff;
 }
 
 pre#codeOutputDisplay {
@@ -226,14 +225,15 @@ pre#codeOutputDisplay {
     min-height: 250px;
     padding: 12px !important;
     margin: 0;
-    margin-top: 8px;
-    border: 1px solid var(--border-color);
+    margin-top: 8px; /* Added margin to separate from output-header */
+    border: 1.5px solid var(--border-color);
     border-radius: var(--border-radius);
+    background: linear-gradient(90deg, #fdfdfd 80%, #f1f3f7 100%);
+    box-shadow: 0 1px 6px rgba(30,64,175,0.04);
     font-family: var(--font-mono) !important;
     font-size: 0.9em !important;
     line-height: 1.5 !important;
     overflow: auto;
-    background-color: #fdfdfd;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -242,7 +242,7 @@ pre#codeOutputDisplay {
 
 pre#codeOutputDisplay:focus-within {
     border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+    box-shadow: 0 0 0 4px rgba(37,99,235,0.13);
 }
 
 pre#codeOutputDisplay code {
@@ -263,21 +263,24 @@ pre.line-numbers {
     width: 100%;
     text-align: center;
     padding: 10px 15px;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 0.9em;
     margin-top: 20px;
+    box-shadow: 0 1px 4px rgba(30,64,175,0.04);
 }
 
 #loadingIndicator {
     color: var(--accent-primary);
     background-color: rgba(0, 123, 255, 0.05);
     border: 1px solid rgba(0, 123, 255, 0.1);
+    font-weight: 500;
 }
 
 .error-message {
     color: var(--error-text);
     background-color: var(--error-bg);
     border: 1px solid var(--error-border);
+    font-weight: 500;
 }
 
 textarea#codeInput::-webkit-scrollbar,
@@ -309,8 +312,8 @@ div.code-toolbar {
 
 div.code-toolbar > .toolbar {
     position: absolute;
-    top: 0.6em;
-    right: 0.6em;
+    top: 0.5em;
+    right: 0.5em;
     display: flex;
     gap: 0.5em;
     opacity: 0;
@@ -328,17 +331,17 @@ div.code-toolbar > .toolbar.hovered {
     padding: 0.3em 0.6em !important;
     font-size: 0.8em !important;
     color: var(--text-primary) !important;
-    background-color: var(--bg-secondary) !important; /* Nền sáng hơn cho nút copy */
+    background-color: var(--bg-tertiary) !important;
     border: 1px solid var(--border-color) !important;
-    border-radius: 4px !important;
-    box-shadow: var(--shadow-sm) !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
 
 .toolbar-item > button:hover,
 .toolbar-item > a:hover {
-    background-color: var(--bg-tertiary) !important;
+    background-color: #e0e7ff !important;
     color: var(--text-primary) !important;
 }
 
@@ -347,6 +350,7 @@ div.code-toolbar > .toolbar.hovered {
     .container {
         padding: 25px;
         max-width: 100%;
+        border-radius: 10px;
     }
     header h1 {
         font-size: 1.9em;
@@ -363,17 +367,17 @@ div.code-toolbar > .toolbar.hovered {
     .container {
         padding: 20px;
         gap: 20px;
+        border-radius: 8px;
     }
     .controls {
         flex-direction: column;
-        align-items: stretch; /* Các control group sẽ full width */
+        align-items: stretch;
         padding-bottom: 20px;
-        gap: 15px; /* Giảm gap giữa các control group */
     }
     .control-group {
         width: 100%;
     }
-    select, button#processButton { /* Nút process cũng full width */
+    select, button {
         width: 100%;
     }
     pre#codeOutputDisplay, textarea#codeInput {
@@ -390,7 +394,6 @@ div.code-toolbar > .toolbar.hovered {
     }
     button#exportButton {
         margin-left: 0;
-        width: auto; /* Nút export không cần full width */
-        align-self: flex-start; /* Căn trái nút export */
+        width: 100%; /* Nút export full width trên mobile */
     }
 }
